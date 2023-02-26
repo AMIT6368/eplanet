@@ -32,7 +32,7 @@
                                           <td><img style="width: 50px; height:50px;" src="<?php echo base_url(); ?><?php echo $menu_list_single->fm_image; ?>"></td>
                                           <td><?php echo $menu_list_single->fm_name; ?></td>
                                           <td>
-                                            <button  onclick="change_status('<?php echo $menu_list_single->fm_slug;  ?>','<?php echo $menu_list_single->fm_status ?>');" class="btn btn-<?php if($menu_list_single->fm_status=='Active'){ echo 'success'; }else{ echo 'danger'; } ?>"> <?php  echo $menu_list_single->fm_status; ?> </button>
+                                            <button data-slug="<?php echo $menu_list_single->fm_slug;  ?>" data-status="<?php echo $menu_list_single->fm_status ?>" class="change_status btn btn-<?php if($menu_list_single->fm_status=='Active'){ echo 'success'; }else{ echo 'danger'; } ?>" id="<?php echo $menu_list_single->fm_slug;  ?>"> <?php  echo $menu_list_single->fm_status; ?> </button>
                                           </td>
                                           <td>
                                             <a href="<?php echo  base_url(); ?>SMenuEdit/<?php echo $menu_list_single->fm_slug;  ?>"><button class="btn btn-dark">Edit</button></a>
@@ -52,20 +52,25 @@
 <!-- content @e -->
 <script type="text/javascript">
 $(document).ready(function(){  
-  change_status(fm_slug,status){
+$(".change_status").click(function(event){
+ var fm_slug = $(this).attr('data-slug');
+ var status = $(this).attr('data-status');
   if(status=='Active'){
      var fm_status = 'Deactive';
+     $("#"+fm_slug).removeClass("btn-success");
+     $("#"+fm_slug).addClass("btn-danger");
+     $(this).attr('data-status',fm_status);
   }else{
     var fm_status = 'Active';
+    $("#"+fm_slug).removeClass("btn-danger");
+    $("#"+fm_slug).addClass("btn-success");
+    $(this).attr('data-status',fm_status);
   }
-
 $.ajax({  
        url:"<?php echo base_url(); ?>SMenuChangeStatus",   
        method:"POST",  
-       data:{fm_slug:fm_slug,fm_status:fm_status},  
-       contentType: false,  
-       cache: false,  
-       processData:false,  
+       data:{fm_slug:fm_slug,fm_status:fm_status},    
+       cache: false,    
        success:function(data)  
        {  
           var resultdatamess = JSON.parse(data); 
@@ -76,7 +81,6 @@ $.ajax({
                 ui: 'is-dark',
                 position: 'top-center'
            });
-          location.reload();
           }
           else
           {
@@ -85,13 +89,9 @@ $.ajax({
                 ui: 'is-dark',
                 position: 'top-center'
            });
-          }
-           
+          } 
        }  
   }); 
-
-
- }
-
+  });
 });  
  </script>  

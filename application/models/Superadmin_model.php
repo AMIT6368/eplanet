@@ -112,6 +112,7 @@ public function MenuAddProcess(){
     $data_arr_order = array(
             'fm_order' => $insert_id,
     );
+         $this->db->where('fm_id',$insert_id);
  return  $this->db->update('footer_menu', $data_arr_order);
 }
 
