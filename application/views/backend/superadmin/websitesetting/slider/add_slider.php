@@ -7,7 +7,7 @@
     <div class="nk-block-head nk-block-head-lg wide-sm">
         <div class="nk-block-head-content">
             <div class="nk-block-head-sub"><a class="back-to" href="javascript:void(0)" onclick="window.history.go(-1)"><em class="icon ni ni-arrow-left"></em><span>Back</span></a></div>
-            <h2 class="nk-block-title fw-normal">Add Menu</h2>
+            <h2 class="nk-block-title fw-normal">Add Slider</h2>
         </div>
     </div><!-- .nk-block-head -->
     <div class="nk-block nk-block-lg">
@@ -17,7 +17,7 @@
         <div class="nk-block nk-block-lg">
             <div class="nk-block-head">
                 <div class="nk-block-head-content">
-                    <h4 class="title nk-block-title">Add Footer Menu</h4>
+                    <h4 class="title nk-block-title">Add Slider</h4>
                 </div>
             </div>
             <div class="row g-gs">
@@ -26,16 +26,28 @@
                         <div class="card-inner">
                             <form id="submit_form_data"  method="post" enctype="multipart/form-data">
                               <div class="form-group">
-                                  <label class="form-label" for="full-name">Menu Name</label>
+                                  <label class="form-label" for="slider_name">Slider Name</label>
                                   <div class="form-control-wrap">
-                                      <input type="text" name="fm_name" class="form-control" id="fm_name">
+                                      <input type="text" name="slider_name" class="form-control" id="slider_name">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label class="form-label" for="fm_status">Menu Status</label>
+                                <label class="form-label" for="slider_url">Slider Url</label>
+                                <div class="form-control-wrap">
+                                    <input type="text" name="slider_url" class="form-control" id="slider_url">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-label" for="slider_sequence">Slider Sequence</label>
+                                  <div class="form-control-wrap">
+                                      <input type="number" name="slider_sequence" class="form-control" id="slider_sequence">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-label" for="slider_status">Slider Status</label>
                                   <div class="form-control-wrap ">
                                       <div class="form-control-select">
-                                          <select class="form-control" id="fm_status" name="fm_status" >
+                                          <select class="form-control" id="slider_status" name="slider_status" >
                                               <option value="Active">Active</option>
                                               <option value="Deactive">Deactive</option>
                                           </select>
@@ -43,9 +55,9 @@
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label class="form-label" for="upload_image">Upload Menu Image</label>
+                                  <label class="form-label" for="upload_image">Upload Slider Image</label>
                                   <div class="form-control-wrap">
-                                      <input type="file" class="form-control upload_image" id="upload_image" name="fm_image">
+                                      <input type="file" class="form-control upload_image" id="upload_image" name="slider_image">
                                   </div>
                               </div>
                               <div class="form-group">
@@ -53,7 +65,7 @@
                                   
                               </div>
                               <div class="form-group">
-                                  <button type="submit" class="btn btn-lg btn-primary">Add Menu</button>
+                                  <button type="submit" class="btn btn-lg btn-primary">Add Slider</button>
                               </div>
                             </form>
                         </div>
@@ -75,28 +87,45 @@
 $(document).ready(function(){  
  var  original_image = base_url+'assets/backend/images/stock/e.jpg';
   $('#submit_form_data').on('submit', function(e){ 
-     var fm_image =  $('#upload_image').val(); 
-     var fm_name =  $('#fm_name').val(); 
+     var slider_image =  $('#upload_image').val(); 
+     var slider_name =  $('#slider_name').val(); 
+     var slider_url =  $('#slider_url').val(); 
+     var slider_sequence =  $('#slider_sequence').val(); 
+     var slider_status =  $('#slider_status').val(); 
        e.preventDefault();  
-       if((!fm_name) && (!fm_image) )  
+       if((!slider_name) && (!slider_image) && (!slider_url) && (!slider_sequence) && (!slider_status))  
        {  
-        if(!fm_image){
+        if(!slider_image){
          toastr.clear();
          NioApp.Toast('Please Select Image First.', 'error' ,{
               ui: 'is-dark',
               position: 'top-center'
          });
         }
-        if(!fm_name){
+        if(!slider_name){
          toastr.clear();
-         NioApp.Toast('Please Enter Menu Name', 'error' ,{
+         NioApp.Toast('Please Enter Slider Title', 'error' ,{
+              ui: 'is-dark',
+              position: 'top-center'
+         });
+        }
+        if(!slider_url){
+         toastr.clear();
+         NioApp.Toast('Please Enter Slider Url', 'error' ,{
+              ui: 'is-dark',
+              position: 'top-center'
+         });
+        }
+        if(!slider_sequence){
+         toastr.clear();
+         NioApp.Toast('Please Enter Slider Sequence', 'error' ,{
               ui: 'is-dark',
               position: 'top-center'
          });
         }
        }else{  
             $.ajax({  
-                 url:"<?php echo base_url(); ?>SMenuAddProcess",   
+                 url:"<?php echo base_url(); ?>SSliderAddProcess",   
                  method:"POST",  
                  data:new FormData(this),  
                  contentType: false,  

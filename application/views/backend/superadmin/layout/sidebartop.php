@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="nk-header-wrap">
                 <div class="nk-menu-trigger d-xl-none ms-n1">
-                    <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                    <a href="javascript:void(0)" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
                 </div>
                 <div class="nk-header-brand d-xl-none">
                     <a href="html/index.html" class="logo-link">
@@ -27,7 +27,7 @@
                 <div class="nk-header-tools">
                     <ul class="nk-quick-nav">
                         <li class="dropdown user-dropdown">
-                            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle" data-bs-toggle="dropdown">
                                 <div class="user-toggle">
                                     <div class="user-avatar sm">
                                         <em class="icon ni ni-user-alt"></em>
@@ -60,19 +60,19 @@
                                 </div>
                                 <div class="dropdown-inner">
                                     <ul class="link-list">
-                                        <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                        <li><a href="javascript:void(0)"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li><!-- .dropdown -->
                         <li class="dropdown notification-dropdown me-n1">
-                            <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                 <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end dropdown-menu-s1">
                                 <div class="dropdown-head">
                                     <span class="sub-title nk-dropdown-title">Notifications</span>
-                                    <a href="#">Mark All as Read</a>
+                                    <a href="javascript:void(0)">Mark All as Read</a>
                                 </div>
                                 <div class="dropdown-body">
                                     <div class="nk-notification">
@@ -97,7 +97,7 @@
                                     </div><!-- .nk-notification -->
                                 </div><!-- .nk-dropdown-body -->
                                 <div class="dropdown-foot center">
-                                    <a href="#">View All</a>
+                                    <a href="javascript:void(0)">View All</a>
                                 </div>
                             </div>
                         </li><!-- .dropdown -->

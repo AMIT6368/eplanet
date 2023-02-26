@@ -91,7 +91,7 @@ public function MenuAddProcess(){
     $data_arr = array(
             'fm_name' => $this->input->post("fm_name"),
             'fm_status' => $this->input->post("fm_status"),
-            'fm_slug' => md5(date('Y-m-d H-i')),
+            'fm_slug' => md5(date('Y-m-d H:i:s')),
     );
     if ($_FILES["fm_image"]["size"] > 0) {
     $config['upload_path']   = './upload/footermenu';
@@ -124,7 +124,7 @@ public function MenuEditProcess(){
     );
     if ($_FILES["fm_image"]["size"] > 0) {
     $config['upload_path']   = './upload/footermenu';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
     $this->load->library('upload', $config);
     $this->upload->initialize($config);
     if (!$this->upload->do_upload('fm_image')) {
@@ -140,4 +140,173 @@ public function MenuEditProcess(){
  return  $this->db->update('footer_menu', $data_arr);
 
 }
+
+/// category
+public function CategoryAddProcess(){
+    $data_arr = array(
+            'cat_title' => $this->input->post("cat_title"),
+            'cat_details' => $this->input->post("cat_details"),
+            'cat_sequence' => $this->input->post("cat_sequence"),
+            'cat_delete' => 'No',
+            'cat_status' => $this->input->post("cat_status"),
+            'cat_slug' => md5(date('Y-m-d H:i:s')),
+    );
+    if ($_FILES["cat_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/category';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('cat_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["cat_image"] ='upload/category/'.$img_data['file_name'];
+    }
+}
+    $this->db->insert('category', $data_arr);  
+    return  $insert_id=$this->db->insert_id();
+}
+
+public function CategoryEditProcess(){
+    $data_arr = array(
+            'cat_title' => $this->input->post("cat_title"),
+            'cat_details' => $this->input->post("cat_details"),
+            'cat_status' => $this->input->post("cat_status"),
+            'cat_sequence' => $this->input->post("cat_sequence"),
+    );
+    if ($_FILES["cat_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/category';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('cat_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["cat_image"] ='upload/category/'.$img_data['file_name'];
+    }
+}
+         $this->db->where('cat_id',$this->input->post("cat_id"));
+ return  $this->db->update('category', $data_arr);
+
+}
+
+/// Subcategory
+public function SubCategoryAddProcess(){
+    $data_arr = array(
+            'cat_id' => $this->input->post("cat_id"),
+            'sc_title' => $this->input->post("sc_title"),
+            'sc_sub_title' => $this->input->post("sc_sub_title"),
+            'sc_amount' => $this->input->post("sc_amount"),
+            'sc_sequence' => $this->input->post("sc_sequence"),
+            'sc_status' => $this->input->post("sc_status"),
+            'sc_delete' => 'No',
+            'sc_slug' => md5(date('Y-m-d H:i:s')),
+    );
+    if ($_FILES["sc_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/subcategory';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('sc_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["sc_image"] ='upload/subcategory/'.$img_data['file_name'];
+    }
+}
+    $this->db->insert('subcategory', $data_arr);  
+    return  $insert_id=$this->db->insert_id();
+}
+
+public function SubCategoryEditProcess(){
+    $data_arr = array(
+            'cat_id' => $this->input->post("cat_id"),
+            'sc_title' => $this->input->post("sc_title"),
+            'sc_sub_title' => $this->input->post("sc_sub_title"),
+            'sc_amount' => $this->input->post("sc_amount"),
+            'sc_sequence' => $this->input->post("sc_sequence"),
+            'sc_status' => $this->input->post("sc_status"),
+    );
+    if ($_FILES["sc_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/subcategory';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('sc_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["sc_image"] ='upload/subcategory/'.$img_data['file_name'];
+    }
+}
+         $this->db->where('sc_id',$this->input->post("sc_id"));
+ return  $this->db->update('subcategory', $data_arr);
+
+}
+
+/// Slider
+public function SliderAddProcess(){
+    $data_arr = array(
+            'slider_name' => $this->input->post("slider_name"),
+            'slider_url' => $this->input->post("slider_url"),
+            'slider_sequence' => $this->input->post("slider_sequence"),
+            'slider_status' => $this->input->post("slider_status"),
+            'slider_slug' => md5(date('Y-m-d H-i')),
+    );
+    if ($_FILES["slider_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/slider';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('slider_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["slider_image"] ='upload/slider/'.$img_data['file_name'];
+    }
+}
+    $this->db->insert('slider', $data_arr);  
+    return  $insert_id=$this->db->insert_id();
+}
+
+public function SliderEditProcess(){
+    $data_arr = array(
+            'slider_name' => $this->input->post("slider_name"),
+            'slider_url' => $this->input->post("slider_url"),
+            'slider_status' => $this->input->post("slider_status"),
+            'slider_sequence' => $this->input->post("slider_sequence"),
+    );
+    if ($_FILES["slider_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/slider';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload('slider_image')) {
+        $error = array(
+            'error' => $this->upload->display_errors()
+        );
+    } else {
+        $img_data= $this->upload->data();
+        $data_arr["slider_image"] ='upload/slider/'.$img_data['file_name'];
+    }
+}
+         $this->db->where('slider_id',$this->input->post("slider_id"));
+ return  $this->db->update('slider', $data_arr);
+
+}
+
+
+
+
 }?>

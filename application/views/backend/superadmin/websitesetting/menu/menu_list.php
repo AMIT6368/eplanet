@@ -6,7 +6,7 @@
               <div class="components-preview wide-md mx-auto">
                   <div class="nk-block-head nk-block-head-lg wide-sm">
                       <div class="nk-block-head-content">
-                          <div class="nk-block-head-sub"><a class="back-to" href="html/components.html"><em class="icon ni ni-arrow-left"></em><span>Back</span></a></div>
+                          <div class="nk-block-head-sub"><a class="back-to" href="javascript:void(0)" onclick="window.history.go(-1)"><em class="icon ni ni-arrow-left"></em><span>Back</span></a></div>
                           <h2 class="nk-block-title fw-normal">Menu List</h2>
                       </div>
                   </div><!-- .nk-block-head -->
@@ -60,11 +60,13 @@ $(".change_status").click(function(event){
      $("#"+fm_slug).removeClass("btn-success");
      $("#"+fm_slug).addClass("btn-danger");
      $(this).attr('data-status',fm_status);
+     $("#"+fm_slug).html(fm_status);
   }else{
     var fm_status = 'Active';
     $("#"+fm_slug).removeClass("btn-danger");
     $("#"+fm_slug).addClass("btn-success");
     $(this).attr('data-status',fm_status);
+    $("#"+fm_slug).html(fm_status);
   }
 $.ajax({  
        url:"<?php echo base_url(); ?>SMenuChangeStatus",   

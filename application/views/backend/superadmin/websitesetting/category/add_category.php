@@ -7,7 +7,7 @@
     <div class="nk-block-head nk-block-head-lg wide-sm">
         <div class="nk-block-head-content">
             <div class="nk-block-head-sub"><a class="back-to" href="javascript:void(0)" onclick="window.history.go(-1)"><em class="icon ni ni-arrow-left"></em><span>Back</span></a></div>
-            <h2 class="nk-block-title fw-normal">Add Menu</h2>
+            <h2 class="nk-block-title fw-normal">Add Category</h2>
         </div>
     </div><!-- .nk-block-head -->
     <div class="nk-block nk-block-lg">
@@ -17,7 +17,7 @@
         <div class="nk-block nk-block-lg">
             <div class="nk-block-head">
                 <div class="nk-block-head-content">
-                    <h4 class="title nk-block-title">Add Footer Menu</h4>
+                    <h4 class="title nk-block-title">Add Category</h4>
                 </div>
             </div>
             <div class="row g-gs">
@@ -26,16 +26,28 @@
                         <div class="card-inner">
                             <form id="submit_form_data"  method="post" enctype="multipart/form-data">
                               <div class="form-group">
-                                  <label class="form-label" for="full-name">Menu Name</label>
+                                  <label class="form-label" for="cat_title">Category Name</label>
                                   <div class="form-control-wrap">
-                                      <input type="text" name="fm_name" class="form-control" id="fm_name">
+                                      <input type="text" name="cat_title" class="form-control" id="cat_title">
                                   </div>
                               </div>
                               <div class="form-group">
-                                  <label class="form-label" for="fm_status">Menu Status</label>
+                                <label class="form-label" for="cat_details">Category Details</label>
+                                <div class="form-control-wrap">
+                                    <textarea class="form-control no-resize" name="cat_details" id="cat_details"></textarea>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-label" for="cat_sequence">Category Sequence</label>
+                                  <div class="form-control-wrap">
+                                      <input type="number" name="cat_sequence" class="form-control" id="cat_sequence">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-label" for="cat_status">Category Status</label>
                                   <div class="form-control-wrap ">
                                       <div class="form-control-select">
-                                          <select class="form-control" id="fm_status" name="fm_status" >
+                                          <select class="form-control" id="cat_status" name="cat_status" >
                                               <option value="Active">Active</option>
                                               <option value="Deactive">Deactive</option>
                                           </select>
@@ -45,7 +57,7 @@
                               <div class="form-group">
                                   <label class="form-label" for="upload_image">Upload Menu Image</label>
                                   <div class="form-control-wrap">
-                                      <input type="file" class="form-control upload_image" id="upload_image" name="fm_image">
+                                      <input type="file" class="form-control upload_image" id="upload_image" name="cat_image">
                                   </div>
                               </div>
                               <div class="form-group">
@@ -53,7 +65,7 @@
                                   
                               </div>
                               <div class="form-group">
-                                  <button type="submit" class="btn btn-lg btn-primary">Add Menu</button>
+                                  <button type="submit" class="btn btn-lg btn-primary">Add Category</button>
                               </div>
                             </form>
                         </div>
@@ -75,10 +87,13 @@
 $(document).ready(function(){  
  var  original_image = base_url+'assets/backend/images/stock/e.jpg';
   $('#submit_form_data').on('submit', function(e){ 
-     var fm_image =  $('#upload_image').val(); 
-     var fm_name =  $('#fm_name').val(); 
+     var cat_image =  $('#upload_image').val(); 
+     var cat_title =  $('#cat_title').val(); 
+     var cat_details =  $('#cat_details').val(); 
+     var cat_sequence =  $('#cat_sequence').val(); 
+     var cat_status =  $('#cat_status').val(); 
        e.preventDefault();  
-       if((!fm_name) && (!fm_image) )  
+       if((!cat_title) && (!cat_image) && (!cat_details) && (!cat_sequence) && (!cat_status))  
        {  
         if(!fm_image){
          toastr.clear();
@@ -87,16 +102,30 @@ $(document).ready(function(){
               position: 'top-center'
          });
         }
-        if(!fm_name){
+        if(!cat_title){
          toastr.clear();
-         NioApp.Toast('Please Enter Menu Name', 'error' ,{
+         NioApp.Toast('Please Enter Category Title', 'error' ,{
+              ui: 'is-dark',
+              position: 'top-center'
+         });
+        }
+        if(!cat_details){
+         toastr.clear();
+         NioApp.Toast('Please Enter Category Details', 'error' ,{
+              ui: 'is-dark',
+              position: 'top-center'
+         });
+        }
+        if(!cat_sequence){
+         toastr.clear();
+         NioApp.Toast('Please Enter Category Sequence', 'error' ,{
               ui: 'is-dark',
               position: 'top-center'
          });
         }
        }else{  
             $.ajax({  
-                 url:"<?php echo base_url(); ?>SMenuAddProcess",   
+                 url:"<?php echo base_url(); ?>SCategoryAddProcess",   
                  method:"POST",  
                  data:new FormData(this),  
                  contentType: false,  

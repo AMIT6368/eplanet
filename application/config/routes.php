@@ -30,8 +30,30 @@ $route['SMenuChangeStatus'] = 'Superadmin/MenuChangeStatus';
 $route['SMenuDelete'] = 'Superadmin/MenuDelete';
 $route['SMenuEditProcess'] = 'Superadmin/MenuEditProcess';
 $route['SMenuAddProcess'] = 'Superadmin/MenuAddProcess';
-//SLIDER
-
+//Category
+$route['SCategoryList'] = 'Superadmin/CategoryList';
+$route['SCategoryAdd'] = 'Superadmin/CategoryAdd';
+$route['SCategoryEdit/(.+)'] = 'Superadmin/CategoryEdit/$1';
+$route['SCategoryChangeStatus'] = 'Superadmin/CategoryChangeStatus';
+$route['SCategoryDelete'] = 'Superadmin/CategoryDelete';
+$route['SCategoryEditProcess'] = 'Superadmin/CategoryEditProcess';
+$route['SCategoryAddProcess'] = 'Superadmin/CategoryAddProcess';
+// Subcategory
+$route['SSubCategoryList'] = 'Superadmin/SubCategoryList';
+$route['SSubCategoryAdd'] = 'Superadmin/SubCategoryAdd';
+$route['SSubCategoryEdit/(.+)'] = 'Superadmin/SubCategoryEdit/$1';
+$route['SSubCategoryChangeStatus'] = 'Superadmin/SubCategoryChangeStatus';
+$route['SSubCategoryDelete'] = 'Superadmin/SubCategoryDelete';
+$route['SSubCategoryEditProcess'] = 'Superadmin/SubCategoryEditProcess';
+$route['SSubCategoryAddProcess'] = 'Superadmin/SubCategoryAddProcess';
+//Slider
+$route['SSliderList'] = 'Superadmin/SliderList';
+$route['SSliderAdd'] = 'Superadmin/SliderAdd';
+$route['SSliderEdit/(.+)'] = 'Superadmin/SliderEdit/$1';
+$route['SSliderChangeStatus'] = 'Superadmin/SliderChangeStatus';
+$route['SSliderDelete'] = 'Superadmin/SliderDelete';
+$route['SSliderEditProcess'] = 'Superadmin/SliderEditProcess';
+$route['SSliderAddProcess'] = 'Superadmin/SliderAddProcess';
 ///  user section  
 $route['Home'] = 'Home/index';
 $route['UDashboard'] = 'Home/UDashboard';
