@@ -8,8 +8,8 @@
                 </div>
                 <div class="nk-header-brand d-xl-none">
                     <a href="html/index.html" class="logo-link">
-                        <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                        <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                        <img class="logo-light logo-img" src="<?php  echo base_url(); ?>assets/frontend/all_in_all/assets/logoorignal512.png" srcset="<?php  echo base_url(); ?>assets/frontend/all_in_all/assets/logoorignal512.png 2x" alt="logo">
+                        <img class="logo-dark logo-img" src="<?php  echo base_url(); ?>assets/frontend/all_in_all/assets/logoorignal512.png" srcset="<?php  echo base_url(); ?>assets/frontend/all_in_all/assets/logoorignal512.png 2x" alt="logo-dark">
                     </a>
                 </div><!-- .nk-header-brand -->
                 <div class="nk-header-news d-none d-xl-block">
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="user-info d-none d-md-block">
                                         <div class="user-status">Administrator</div>
-                                        <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                        <div class="user-name dropdown-indicator"><?php echo $admindetail->full_name ? $admindetail->full_name : 'Admin'  ?></div>
                                     </div>
                                 </div>
                             </a>
@@ -42,19 +42,19 @@
                                 <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                     <div class="user-card">
                                         <div class="user-avatar">
-                                            <span>AB</span>
+                                            <span><?php echo $admindetail->username ? $admindetail->username : 'Admin'  ?></span>
                                         </div>
                                         <div class="user-info">
-                                            <span class="lead-text">Abu Bin Ishtiyak</span>
-                                            <span class="sub-text">info@softnio.com</span>
+                                            <span class="lead-text"><?php echo $admindetail->full_name ? $admindetail->full_name : 'Admin'  ?></span>
+                                            <span class="sub-text"><?php echo $admindetail->email ? $admindetail->email : 'admin@gmail.com'  ?></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="dropdown-inner">
                                     <ul class="link-list">
-                                        <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                        <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                        <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                        <li><a href="<?php echo base_url();?>SAdminProfile"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                        <li><a href="<?php echo base_url();?>SWebsiteSetting"><em class="icon ni ni-setting-alt"></em><span>Website Setting</span></a></li>
+                                        <li><a href="<?php echo base_url();?>SLoginActivity"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
                                         <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                     </ul>
                                 </div>

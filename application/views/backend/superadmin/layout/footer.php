@@ -24,6 +24,18 @@
 <script src="<?php  echo base_url(); ?>assets/backend/assets/js/bundle.js?ver=3.1.1"></script>
 <script src="<?php  echo base_url(); ?>assets/backend/assets/js/scripts.js?ver=3.1.1"></script>
 <script src="<?php  echo base_url(); ?>assets/backend/assets/js/charts/gd-default.js?ver=3.1.1"></script>
+<script src="<?php  echo base_url(); ?>assets/backend/assets/js/libs/datatable-btns.js?ver=3.1.1"></script>
 </body>
+<script type="text/javascript">
+$("#upload_image").change(function(event){
+ var reader = new FileReader();
+ reader.onload = function()
+ {
+  var output = document.getElementById('upload_image_display');
+  output.src = reader.result;
+ }
+reader.readAsDataURL(event.target.files[0]); 
+});
+</script>
 
 </html>

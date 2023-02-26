@@ -17,18 +17,9 @@
                                 <div class="toggle-expand-content" data-content="pageMenu">
                                     <ul class="nk-block-tools g-3">
                                         <li>
-                                            <div class="dropdown">
-                                                <a href="#" class="dropdown-toggle btn btn-white btn-dim btn-outline-light" data-bs-toggle="dropdown"><em class="d-none d-sm-inline icon ni ni-calender-date"></em><span><span class="d-none d-md-inline">Last</span> 30 Days</span><em class="dd-indc icon ni ni-chevron-right"></em></a>
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <ul class="link-list-opt no-bdr">
-                                                        <li><a href="#"><span>Last 30 Days</span></a></li>
-                                                        <li><a href="#"><span>Last 6 Months</span></a></li>
-                                                        <li><a href="#"><span>Last 1 Years</span></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                        
                                         </li>
-                                        <li class="nk-block-tools-opt"><a href="#" class="btn btn-primary"><em class="icon ni ni-reports"></em><span>Reports</span></a></li>
+                                        <li class="nk-block-tools-opt"><a href="javascript()" class="btn btn-primary"><em class="icon ni ni-reports"></em><span>Back</span></a></li>
                                     </ul>
                                 </div>
                             </div>

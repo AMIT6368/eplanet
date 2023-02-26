@@ -25,43 +25,75 @@
                     <h6 class="overline-title text-primary-alt">User Management</h6>
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-item">
-                    <a href="html/crm/index.html" class="nk-menu-link">
+                    <a href="<?php echo base_url();?>SActiveUser" class="nk-menu-link">
                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
                         <span class="nk-menu-text">Users</span><span class="nk-menu-badge">Active</span>
                     </a>
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-item">
-                    <a href="html/hotel/index.html" class="nk-menu-link">
+                    <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link">
                         <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
                         <span class="nk-menu-text">Users</span><span class="nk-menu-badge">Inactive</span>
                     </a>
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-heading">
-                    <h6 class="overline-title text-primary-alt">Dashboards</h6>
+                    <h6 class="overline-title text-primary-alt">Website Setting</h6>
                 </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item">
-                    <a href="html/index.html" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                        <span class="nk-menu-text">Default Dashboard</span>
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                        <span class="nk-menu-text">Menu</span>
                     </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SMenuAdd" class="nk-menu-link"><span class="nk-menu-text">Add Menu</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SMenuList" class="nk-menu-link"><span class="nk-menu-text">Menu List</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item">
-                    <a href="html/index-crypto.html" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-bitcoin-cash"></em></span>
-                        <span class="nk-menu-text">Crypto Dashboard</span>
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                        <span class="nk-menu-text">Slider</span>
                     </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Add Slider</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Slider List</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item">
-                    <a href="html/index-analytics.html" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-growth"></em></span>
-                        <span class="nk-menu-text">Analytics Dashboard</span>
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                        <span class="nk-menu-text">Category</span>
                     </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Add Category</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Category List</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
-                <li class="nk-menu-item">
-                    <a href="html/index-invest.html" class="nk-menu-link">
-                        <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                        <span class="nk-menu-text">Invest Dashboard</span>
+                <li class="nk-menu-item has-sub">
+                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
+                        <span class="nk-menu-text">Subcategory</span>
                     </a>
+                    <ul class="nk-menu-sub">
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Add Subcategory</span></a>
+                        </li>
+                        <li class="nk-menu-item">
+                            <a href="<?php echo base_url();?>SDeactiveUser" class="nk-menu-link"><span class="nk-menu-text">Subcategory List</span></a>
+                        </li>
+                    </ul><!-- .nk-menu-sub -->
                 </li><!-- .nk-menu-item -->
                 <li class="nk-menu-heading">
                     <h6 class="overline-title text-primary-alt">Pre-Built Pages</h6>

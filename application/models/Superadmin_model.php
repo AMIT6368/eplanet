@@ -87,364 +87,56 @@ public function deletedataOrderBy($table,$where)
  return $query;   
 }
 
-
-
-public function update_SSliderOne()
-{
+public function MenuAddProcess(){
     $data_arr = array(
-            'title' => $this->input->post("title"),
-            'subtille' => $this->input->post("subtille"),
-            'button_text' => $this->input->post("button_text"),
+            'fm_name' => $this->input->post("fm_name"),
+            'fm_status' => $this->input->post("fm_status"),
+            'fm_slug' => md5(date('Y-m-d H-i')),
     );
-    if ($_FILES["slider_image1"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
+    if ($_FILES["fm_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/footermenu';
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
     $this->load->library('upload', $config);
     $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image1')) {
+    if (!$this->upload->do_upload('fm_image')) {
         $error = array(
             'error' => $this->upload->display_errors()
         );
-        print_r($error);
-        die;
     } else {
         $img_data= $this->upload->data();
-        $data_arr["slider_image1"] ='upload/slider/'.$img_data['file_name'];
+        $data_arr["fm_image"] ='upload/footermenu/'.$img_data['file_name'];
     }
 }
-
- if ($_FILES["slider_image2"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image2')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image2"] ='upload/slider/'.$img_data['file_name'];
-    }
+    $this->db->insert('footer_menu', $data_arr);  
+    $insert_id=$this->db->insert_id();
+    $data_arr_order = array(
+            'fm_order' => $insert_id,
+    );
+ return  $this->db->update('footer_menu', $data_arr_order);
 }
 
-
- if ($_FILES["slider_image3"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image3')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image3"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-
- if ($_FILES["slider_image4"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image4')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image4"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-
- if ($_FILES["slider_image5"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image5')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image5"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-$this->db->where('slider_id ', '1');
-return $this->db->update('slider', $data_arr);  
-}
-
-
-public function update_SSliderTwo()
-{
+public function MenuEditProcess(){
     $data_arr = array(
-            'title' => $this->input->post("title"),
-            'subtille' => $this->input->post("subtille"),
-            'button_text' => $this->input->post("button_text"),
+            'fm_name' => $this->input->post("fm_name"),
+            'fm_status' => $this->input->post("fm_status"),
+            'fm_order' => $this->input->post("fm_order"),
     );
-    if ($_FILES["slider_image1"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
+    if ($_FILES["fm_image"]["size"] > 0) {
+    $config['upload_path']   = './upload/footermenu';
     $config['allowed_types'] = 'gif|jpg|png|jpeg';
     $this->load->library('upload', $config);
     $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image1')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image1"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-
- if ($_FILES["slider_image2"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image2')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image2"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-
-
- if ($_FILES["slider_image3"]["size"] > 0) {
-    $config['upload_path']   = './upload/slider';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('slider_image3')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["slider_image3"] ='upload/slider/'.$img_data['file_name'];
-    }
-}
-
-$this->db->where('slider_id ', '2');
-return $this->db->update('slider', $data_arr);  
-}
-
-public function updatedataVerification($user_id,$dataarray){
-    
-    $data_arr =$dataarray;
-    if ($_FILES["profile_pic"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = '*';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('profile_pic')) {
+    if (!$this->upload->do_upload('fm_image')) {
         $error = array(
             'error' => $this->upload->display_errors()
         );
     } else {
         $img_data= $this->upload->data();
-        $data_arr["profile_pic"] ='upload/usergraph/'.$img_data['file_name'];
+        $data_arr["fm_image"] ='upload/footermenu/'.$img_data['file_name'];
     }
 }
-
-    if ($_FILES["aadhar_card_front"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = '*';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('aadhar_card_front')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["aadhar_card_front"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-
-    if ($_FILES["aadhar_card_back"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = '*';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('aadhar_card_back')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["aadhar_card_back"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-
-
-    if ($_FILES["pan_card_image"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = '*';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('pan_card_image')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["pan_card_image"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-
-
-$this->db->where('user_id', $user_id);
-return $this->db->update('user', $data_arr);     
-    
-}
-
-public function uploadimageprofile($user_id){
-    
-    $data_arr = array(
-            'dummydata' => $this->input->post("user_graph_name"),
-    );
-    if ($_FILES["image_file"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('image_file')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["profile_pic"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-$this->db->where('user_id', $user_id);
-return $this->db->update('user', $data_arr);  
-}
-
-public function SCustomSetting($user_id)
-{
-    $data_arr = array(
-            'dummydata' => $this->input->post("user_graph_name"),
-    );
-    if ($_FILES["user_graph_history"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('user_graph_history')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["user_graph_history"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-    if ($_FILES["user_graph"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('user_graph')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["user_graph"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-$this->db->where('user_id', $user_id);
-return $this->db->update('user', $data_arr);  
-}
-
-public function SFeaturesEdit($id)
-{
-    $data_arr = array(
-            'fo_title' => $this->input->post("fo_title"),
-    );
-    if ($_FILES["fo_image"]["size"] > 0) {
-    $config['upload_path']   = './upload/features';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('fo_image')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["fo_image"] ='upload/features/'.$img_data['file_name'];
-    }
-}
-       $this->db->where('fo_id', $id);
-return $this->db->update('features_overview', $data_arr);
+         $this->db->where('fm_id',$this->input->post("fm_id"));
+ return  $this->db->update('footer_menu', $data_arr);
 
 }
-
-
-public function SCustomSettingContactUs()
-{
-    $data_arr = array(
-            'app_name' => $this->input->post("app_name"),
-            'whatsapp_number' => $this->input->post("mobile_number"),
-            'mobile_number' => $this->input->post("mobile_number"),
-            'email' => $this->input->post("email"),
-    );
-    if ($_FILES["user_graph_history"]["size"] > 0) {
-    $config['upload_path']   = './upload/usergraph';
-    $config['allowed_types'] = 'gif|jpg|png|jpeg';
-    $this->load->library('upload', $config);
-    $this->upload->initialize($config);
-    if (!$this->upload->do_upload('user_graph_history')) {
-        $error = array(
-            'error' => $this->upload->display_errors()
-        );
-        print_r($error);
-        die;
-    } else {
-        $img_data= $this->upload->data();
-        $data_arr["main_logo"] ='upload/usergraph/'.$img_data['file_name'];
-        $data_arr["fav_logo"] ='upload/usergraph/'.$img_data['file_name'];
-    }
-}
-
-
-$this->db->where('cu_id','1');
-return $this->db->update('contact_us', $data_arr);  
-}
-
-
 }?>
